@@ -1,4 +1,4 @@
-M java
+FROM java
 MAINTAINER ben
 
 RUN apt-get update
