@@ -1,15 +1,14 @@
-FROM centos:7
-MAINTAINER jack
+M java
+MAINTAINER ben
 
-RUN yum install -y wget
+RUN apt-get update
+RUN apt-get install -y wget
 
 RUN cd /
-
-ADD jdk-8u192-linux-x64.tar.gz /
 
 RUN wget https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.82/bin/apache-tomcat-7.0.82.tar.gz
 RUN tar zxvf apache-tomcat-7.0.82.tar.gz
 
-ENV JAVA_HOME=/jdk1.8.0_192
-ENV PATH=$PATH:/jdk1.8.0_192/bin
 CMD ["/apache-tomcat-7.0.82/bin/catalina.sh", "run"]
+
+EXPOSE 8080
